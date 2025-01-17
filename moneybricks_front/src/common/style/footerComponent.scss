@@ -1,0 +1,85 @@
+.footer-container {
+  font-family: Arial, sans-serif;
+  //padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    max-width: 1200px;
+    width: 100%;
+    margin-bottom: 30px;
+
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      text-align: center;
+
+      h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #0D548E;
+      }
+
+      p {
+        line-height: 1.6;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .footer-bottom {
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #0D548E;
+    padding-top: 20px;
+    font-size: 12px;
+
+    p {
+      margin: 10px 0;
+      line-height: 1.6;
+
+      &:first-child {
+        margin-bottom: 20px;
+      }
+    }
+
+    .footer-logo img {
+      height: 50px; // 로고 이미지 높이 조정
+      max-width: 150px; // 최대 너비 설정
+      object-fit: contain; // 이미지 비율 유지
+    }
+  }
+
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      align-items: center;
+
+      .footer-contact {
+        width: 100%;
+        text-align: center;
+
+        h2 {
+          margin-top: 20px;
+        }
+      }
+    }
+
+    .footer-bottom {
+      font-size: 10px;
+
+      .footer-logo {
+        margin-top: 15px;
+        font-size: 14px;
+      }
+    }
+  }
+}
