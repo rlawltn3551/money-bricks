@@ -1,0 +1,116 @@
+$primary-color: #0D548E;
+$border-color: #ced4da;
+$error-color: #dc3545;
+
+.maturity-calculator {
+  padding: 20px;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  background-color: white;
+  text-align: center;
+
+  .calculator-toggle-btn {
+    width: 100%;
+    padding: 1rem;
+    background: $primary-color;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: darken($primary-color, 10%);
+    }
+  }
+
+  .calculator-content {
+    margin-top: 15px; /* 버튼과 내용 사이의 여백 */
+    display: block;
+    padding: 20px;
+    background-color: #f0f8ff;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+
+    .input-group {
+      margin-bottom: 12px;
+      text-align: left;
+
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #333;
+      }
+
+      select,
+      input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+    }
+
+    /* 계산 버튼 그룹 */
+    .calculator-btn-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px; /* 버튼 간격 조정 */
+    }
+
+    /* 계산하기 버튼 */
+    .calculate-btn {
+      padding: 1rem;
+      background: $primary-color;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      flex: 1; /* 버튼 크기 확장 */
+
+      &:hover {
+        background: darken($primary-color, 10%);
+      }
+    }
+
+    /* 리셋 버튼 */
+    .reset-btn {
+      padding: 1rem;
+      background: white;
+      color: $primary-color;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 6px;
+      border: 1px solid $border-color;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      flex: 1; /* 버튼 크기 확장 */
+
+      &:hover {
+        color: white;
+        background: darken($primary-color, 10%);
+      }
+    }
+
+    .result {
+      margin-top: 15px;
+      font-size: 18px;
+      color: $primary-color;
+      font-weight: bold;
+    }
+
+    .error {
+      color: $error-color;
+      margin-top: 10px;
+    }
+  }
+}
+

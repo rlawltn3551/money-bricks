@@ -1,0 +1,189 @@
+.trade-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.trade-modal-content {
+  background-color: white;
+  padding: 24px;
+  border-radius: 12px;
+  width: 450px;
+  max-width: 95%;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+
+  h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #212529;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .trade-type-switch {
+    display: flex;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #dee2e6;
+
+    button {
+      flex: 1;
+      padding: 12px;
+      background-color: #f8f9fa;
+      color: #495057;
+      border: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+
+      &.active {
+        background-color: #339af0;
+        color: white;
+      }
+
+      &:hover {
+        background-color: #e9ecef;
+      }
+    }
+  }
+
+  .stock-select,
+  .quantity-input {
+    margin-bottom: 20px;
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #343a40;
+      font-weight: 600;
+    }
+
+    select,
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ced4da;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        outline: none;
+        border-color: #74c0fc;
+        box-shadow: 0 0 0 3px rgba(34, 139, 230, 0.1);
+      }
+    }
+
+    select {
+      appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23495057" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 36px;
+    }
+
+    // 선택된 옵션만 보이도록 처리
+    select option:not(:checked) {
+      display: none;
+    }
+  }
+
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    overflow: hidden;
+
+    button {
+      width: 50px;
+      padding: 10px;
+      background-color: #f8f9fa;
+      border: none;
+      color: #495057;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #e9ecef;
+      }
+    }
+
+    input {
+      flex: 1;
+      text-align: center;
+      border: none;
+      border-left: 1px solid #ced4da;
+      border-right: 1px solid #ced4da;
+      padding: 10px;
+    }
+  }
+
+  .trade-summary {
+    background-color: #f1f3f5;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: right;
+    color: #343a40;
+
+    p {
+      margin-bottom: 5px;
+    }
+  }
+
+  .error-message {
+    color: #f03e3e;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: #fff5f5;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: 500;
+  }
+
+  .trade-modal-actions {
+    display: flex;
+    gap: 12px;
+
+    button {
+      flex: 1;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .submit-button {
+      background-color: #40c057;
+      color: white;
+
+      &:hover {
+        background-color: #37b24d;
+      }
+
+      &:disabled {
+        background-color: #adb5bd;
+        cursor: not-allowed;
+      }
+    }
+
+    .cancel-button {
+      background-color: #868e96;
+      color: white;
+
+      &:hover {
+        background-color: #6c757d;
+      }
+    }
+  }
+}

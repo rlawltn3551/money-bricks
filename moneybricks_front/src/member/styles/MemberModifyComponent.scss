@@ -1,0 +1,132 @@
+// Variables
+$primary-color: #0D548E;
+$error-color: #dc3545;
+$text-color: #333;
+$border-color: #ced4da;
+$background-color: #f8f9fa;
+$white: #ffffff;
+$disabled-color: lighten($primary-color, 20%);
+$secondary-text-color: darken($border-color, 30%);
+$accent-color: #6b7280;
+$input-underline-color: #e5e7eb;
+
+@mixin flex-column($gap: 1rem) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+@mixin input-styles {
+  width: 97%;
+  border: none;
+  border-bottom: 1px solid $input-underline-color;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-bottom-color: $primary-color;
+  }
+
+  &.is-invalid {
+    border-bottom-color: $error-color;
+  }
+}
+
+@mixin button-styles($background: $primary-color, $hover: darken($primary-color, 10%)) {
+  background-color: $background;
+  color: $white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  height: 50px;
+
+  &:hover {
+    background-color: $hover;
+  }
+
+  &:disabled {
+    background-color: $disabled-color;
+    cursor: not-allowed;
+  }
+}
+
+// Keyframes
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// Styles
+.modify-form {
+  background-color: $white;
+
+  h1 {
+    color: $text-color;
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+
+  .modify-form-group {
+    @include flex-column(0.5rem);
+    position: relative;
+    margin-bottom: 1.5rem;
+
+    .modify-form-label {
+      font-weight: 500;
+      color: #000000;
+
+      .modify-form-required {
+        color: $error-color;
+        margin-left: 0.25rem;
+      }
+    }
+
+    .modify-form-input {
+      @include input-styles;
+    }
+
+    .error-message {
+      color: $error-color;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+    }
+
+    .input-with-button {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .duplicate-check-btn {
+      background: transparent;
+      color: $primary-color;
+      border: 1px solid $primary-color;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      height: auto;
+      width: 15%;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: lighten($primary-color, 65%);
+      }
+    }
+  }
+
+  .member-modify-btn {
+    @include button-styles();
+    width: 100%;
+  }
+}

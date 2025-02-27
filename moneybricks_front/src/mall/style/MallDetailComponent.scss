@@ -1,0 +1,79 @@
+$primary-color: #0D548E;
+$secondary-color: #7FC2EF;
+
+.mall-detail-container {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+
+  .image-container {
+    width: 100%;
+    height: 400px;
+    max-width: 400px;
+
+    .mall-image {
+      width: 400px;
+      height: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .detail-box {
+    width: 100%;
+
+    .mall-header {
+      h1 {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+    }
+
+    .price-info {
+      font-size: 16px;
+      margin-bottom: 10px;
+
+      .price {
+        font-size: 18px;
+        font-weight: bold;
+        color: $primary-color;
+      }
+
+      input {
+        width: 50px;
+        padding: 5px;
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-left: 5px;
+      }
+
+      .total-price {
+        font-weight: bold;
+        margin-top: 10px;
+      }
+    }
+
+    .action-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+
+      .buy-now {
+        background: $primary-color;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+          background: $secondary-color;
+        }
+      }
+    }
+  }
+}

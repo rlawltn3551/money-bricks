@@ -1,0 +1,153 @@
+$primary-color: #0D548E;
+$secondary-color: #7FC2EF;
+
+.chatbot-container {
+  width: 400px;
+  height: 600px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: fixed;
+  bottom: 75px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.chatbot-header {
+  background-color: #0D548E;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px;
+}
+
+.chat-history {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+  background: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.category-chat-response {
+  //color: black;
+
+  a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+}
+
+.chat-message {
+  max-width: 80%;
+  padding: 0 15px;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+.chat-message.user {
+  align-self: flex-end;
+  background: $primary-color;
+  color: white;
+}
+
+.chat-message.bot {
+  align-self: flex-start;
+  background: #e0e0e0;
+  //color: black;
+}
+
+.loading-message {
+  font-style: italic;
+  color: #888;
+  background: #f0f0f0;
+  padding: 10px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 80%;
+  align-self: flex-start;
+}
+
+.category-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px;
+  background: #f7f7f7;
+  border-top: 1px solid #ddd;
+  margin: 0;
+}
+
+.category-btn {
+  background: #e0e0e0;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.category-btn.selected {
+  background: $primary-color;
+  color: #fff;
+}
+
+.chat-input-form {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  background: #fff;
+}
+
+.chat-input-form input {
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+}
+
+.send-btn {
+  background: $primary-color;
+  color: white;
+  border: none;
+  padding: 8px;
+  margin-left: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.send-btn:hover {
+  background: $secondary-color;
+}
+
+.mic-btn {
+  background: $primary-color;
+  color: white;
+  border: none;
+  padding: 8px;
+  margin-left: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.mic-btn:hover {
+  background: $secondary-color;
+}

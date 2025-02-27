@@ -1,0 +1,59 @@
+$primary-color: #0D548E;
+$error-color: #dc3545;
+$text-color: #333;
+$border-color: #ced4da;
+$white: #ffffff;
+$disabled-color: lighten($primary-color, 20%);
+$input-underline-color: #e5e7eb;
+
+.account-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+
+  th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid $border-color;
+  }
+
+  th {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: $primary-color;
+  }
+
+  td {
+    font-size: 1rem;
+    color: $text-color;
+  }
+
+  .btn-history-detail-cell {
+    text-align: center;
+
+    .btn-detail {
+      padding: 8px 16px;
+      font-size: 1rem;
+      background-color: $primary-color;
+      color: $white;
+      border: 1px solid $primary-color;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: darken($primary-color, 5%);
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+.no-history {
+  text-align: center;
+  font-size: 16px;
+  color: $error-color;
+}
+

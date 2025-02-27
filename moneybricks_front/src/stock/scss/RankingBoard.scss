@@ -1,0 +1,91 @@
+.ranking-board {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  overflow-y: auto;
+
+  .ranking-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .trophy-icon {
+      color: #ffd700;
+    }
+  }
+
+  .my-ranking {
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .user-icon {
+      color: #666;
+    }
+
+    .ranking-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex: 1;
+    }
+  }
+
+  .ranking-list {
+    .ranking-item {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem;
+      border-bottom: 1px solid #eee;
+      gap: 1rem;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &.highlight {
+        background: #f5ffff;
+      }
+
+      .rank-badge {
+        width: 2rem;
+        text-align: center;
+        font-weight: 600;
+
+        .medal-1 {
+          color: #ffd700;
+        }
+        .medal-2 {
+          color: #c0c0c0;
+        }
+        .medal-3 {
+          color: #cd7f32;
+        }
+      }
+    }
+  }
+
+  .return-rate {
+    margin-left: auto;
+    font-weight: 600;
+
+    &.positive {
+      color: #ef4444;
+    }
+    &.negative {
+      color: #3b82f6;
+    }
+  }
+}

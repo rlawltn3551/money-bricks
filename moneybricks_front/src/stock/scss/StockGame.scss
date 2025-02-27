@@ -1,0 +1,784 @@
+// StockGame.scss
+.stock-game-container {
+  display: flex;
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+  }
+
+  .game-content {
+    flex: 3;
+  }
+
+  .ranking-sidebar {
+    flex: 1;
+    min-width: 320px;
+    align-self: flex-start;
+    position: sticky;
+    top: 20px;
+
+    @media (max-width: 1200px) {
+      position: static;
+      width: 100%;
+    }
+  }
+}
+
+.stock-game {
+  width: 100%;
+
+  .card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 24px;
+
+    &__header {
+      padding: 20px;
+      border-bottom: 1px solid #eee;
+
+      h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+
+    &__content {
+      padding: 20px;
+    }
+  }
+
+  .news-section {
+    .news-content {
+      background: #f8f9fa;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+
+      .news-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #212529;
+      }
+
+      .news-body {
+        color: #495057;
+        margin-bottom: 12px;
+        line-height: 1.5;
+      }
+
+      .news-info {
+        display: flex;
+        gap: 16px;
+        font-size: 0.875rem;
+
+        .news-impact {
+          &.positive {
+            color: #f03e3e;
+          }
+          &.negative {
+            color: #1c7ed6;
+          }
+        }
+      }
+    }
+  }
+
+  .next-day-button {
+    width: 100%;
+    padding: 12px;
+    background: #0D548E;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background: darken(#0D548E, 5%);
+    }
+
+    &:disabled {
+      background: #adb5bd;
+      cursor: not-allowed;
+    }
+  }
+
+  .stats-grid {
+    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+
+    .stat-item {
+      background: #f8f9fa;
+      padding: 16px;
+      border-radius: 6px;
+      width: 50%;
+
+      &__label {
+        font-size: 0.875rem;
+        color: #6c757d;
+        margin-bottom: 4px;
+      }
+
+      &__value {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #212529;
+      }
+    }
+  }
+
+  .stock-list-chart {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 20px;
+
+    .stock-list {
+      width: 40%;
+      max-height: 400px;
+      overflow-y: auto;
+      border-right: 1px solid #eaeaea;
+
+      .stock-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 16px;
+        border-bottom: 1px solid #eaeaea;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.03);
+        }
+
+        &.selected {
+          background-color: rgba(24, 144, 255, 0.08);
+          border-left: 3px solid #1890ff;
+        }
+
+        .stock-item-content {
+          flex: 1;
+
+          .stock-name {
+            font-weight: 500;
+            margin-bottom: 4px;
+          }
+
+          .stock-price {
+            font-size: 15px;
+            font-weight: 600;
+
+            &.up {
+              color: #f5222d;
+            }
+
+            &.down {
+              color: #52c41a;
+            }
+
+            .change-rate {
+              font-size: 12px;
+              margin-left: 8px;
+              opacity: 0.8;
+            }
+          }
+        }
+
+        .stock-industry {
+          font-size: 0.875rem;
+          color: #868e96;
+          margin-top: 4px;
+        }
+
+        .quick-trade-button {
+          background: #f1f3f5;
+          border: 1px solid #dee2e6;
+          border-radius: 4px;
+          padding: 4px 8px;
+          font-size: 0.8rem;
+          color: #495057;
+          cursor: pointer;
+          transition: all 0.2s;
+
+          &:hover {
+            background: #e9ecef;
+            color: #228be6;
+          }
+        }
+      }
+    }
+
+    .chart-container {
+
+      position: relative; /* 부모 요소로서의 기준 설정 */
+      flex: 1;
+      min-height: 320px;
+      background: #fff;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      padding: 20px;
+
+      .trade-selected-button {
+        position: absolute; /* 버튼을 상단 오른쪽에 배치할 수 있도록 설정 */
+        top: 0;
+        right: 0;
+        background: #339af0;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.2s;
+        z-index: 999;
+
+        &:hover {
+          background: #228be6;
+        }
+      }
+
+      .chart-content {
+        height: 280px; // 내부 높이도 조정
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #868e96;
+
+        .chart-section {
+          position: absolute; /* 차트 섹션을 부모 컨테이너에 맞춰 덮도록 설정 */
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          padding: 10px; /* 차트 섹션 내 패딩 */
+          border-radius: 8px;
+
+          .chart-header {
+            margin-bottom: 16px;
+
+            .chart-title {
+              font-size: 1.2rem;
+              font-weight: 600;
+              margin-bottom: 8px; // 제목과 가격 정보 사이 간격 추가
+              color: #212529;
+            }
+
+            .price-summary {
+              justify-content: center;
+              font-size: 0.9rem;
+              color: #495057;
+              display: flex;
+              flex-wrap: wrap; // 필요시 줄바꿈 허용
+              margin-bottom: 5px;
+              line-height: 1.5;
+
+              .price-high,
+              .price-low {
+                white-space: nowrap; // 가격 정보 줄바꿈 방지
+              }
+
+              .price-high {
+                color: #f03e3e;
+              }
+
+              .price-low {
+                color: #1c7ed6;
+              }
+
+              .price-divider {
+                margin: 0 10px;
+                color: #adb5bd;
+              }
+            }
+          }
+        }
+
+        .chart-placeholder {
+          text-align: center;
+          color: #adb5bd;
+          font-size: 0.95rem;
+        }
+      }
+    }
+  }
+
+
+  .trade-section {
+    .trade-controls {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+
+      select,
+      input {
+        padding: 8px 12px;
+        border: 1px solid #dee2e6;
+        border-radius: 4px;
+        font-size: 1rem;
+
+        &:focus {
+          outline: none;
+          border-color: #4dabf7;
+        }
+      }
+
+      select {
+        flex: 1;
+      }
+
+      input {
+        width: 120px;
+      }
+    }
+
+    .trade-buttons {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+
+      button {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &.buy {
+          background: #339af0;
+          color: white;
+
+          &:hover {
+            background: #228be6;
+          }
+        }
+
+        &.sell {
+          background: #adb5bd;
+          color: white;
+
+          &:hover {
+            background: #868e96;
+          }
+        }
+
+        &.active {
+          background: #228be6;
+        }
+      }
+    }
+
+    .execute-button {
+      width: 100%;
+      padding: 12px;
+      background: #40c057;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-weight: 500;
+      cursor: pointer;
+
+      &:hover {
+        background: #37b24d;
+      }
+
+      &:disabled {
+        background: #adb5bd;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .holdings-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #dee2e6;
+    }
+
+    th {
+      font-weight: 600;
+      color: #495057;
+    }
+
+    td {
+      color: #212529;
+
+      &.positive {
+        color: #f03e3e;
+      }
+
+      &.negative {
+        color: #1c7ed6;
+      }
+    }
+
+    .text-right {
+      text-align: right;
+    }
+
+    tr:hover {
+      background: #f8f9fa;
+    }
+
+    .holding-trade-button {
+      background: #f1f3f5;
+      border: 1px solid #dee2e6;
+      border-radius: 4px;
+      padding: 4px 8px;
+      color: #495057;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      &:hover {
+        background: #e9ecef;
+        color: #228be6;
+      }
+    }
+
+    .no-holdings-message {
+      text-align: center;
+      padding: 20px;
+      color: #868e96;
+      font-style: italic;
+    }
+  }
+
+  .daily-reward {
+    text-align: center;
+
+    button {
+      padding: 12px 24px;
+      background: #ffd43b;
+      color: #212529;
+      border: none;
+      border-radius: 4px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background: #fcc419;
+      }
+    }
+
+    .reward-info {
+      margin-top: 8px;
+      font-size: 0.875rem;
+      color: #6c757d;
+    }
+  }
+}
+
+.game-end-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+}
+
+.game-end-modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  background-color: white;
+  border-radius: 12px;
+  padding: 24px;
+  z-index: 1001;
+}
+
+.game-end-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  .game-end-modal-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    .trophy-icon {
+      color: #ffd700;
+    }
+  }
+
+  .modal-close-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    .close-icon {
+      color: #888;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #333;
+      }
+    }
+  }
+}
+
+.game-end-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.game-end-result-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f4f4f4;
+  padding: 15px;
+  border-radius: 8px;
+
+  .result-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #666;
+  }
+
+  .result-value {
+    font-weight: bold;
+    font-size: 1.2rem;
+
+    &.positive {
+      color: green;
+    }
+
+    &.negative {
+      color: red;
+    }
+
+    &.neutral {
+      color: gray;
+    }
+  }
+
+  .result-points {
+    color: blue;
+    font-weight: bold;
+  }
+}
+
+.game-end-modal-footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+
+  .game-end-confirm-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}
+
+.news-section {
+  &__history {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8fafc;
+    border-radius: 8px;
+
+    .history-item {
+      padding: 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #e2e8f0;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .day {
+        font-weight: bold;
+        color: #1e293b;
+      }
+
+      .impact {
+        &.positive {
+          color: #16a34a;
+        }
+        &.negative {
+          color: #dc2626;
+        }
+      }
+    }
+  }
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+
+  .action-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: #e9ecef;
+    }
+
+    &.active {
+      background: #e7f5ff;
+      border-color: #74c0fc;
+      color: #1971c2;
+    }
+
+    &.news-button {
+      color: #495057;
+
+      &:hover {
+        color: #228be6;
+      }
+
+      &.active {
+        color: #1864ab;
+      }
+    }
+
+    &.trade-button {
+      color: #495057;
+
+      &:hover {
+        color: #2b8a3e;
+        background: #ebfbee;
+      }
+    }
+
+    svg {
+      flex-shrink: 0;
+    }
+  }
+}
+
+// 기존 독립 버튼 제거 (이제 action-buttons에 통합)
+.news-history-button {
+  display: none;
+}
+
+// 랭킹보드 스타일 조정
+.ranking-sidebar {
+  .ranking-board {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
+
+// GameStatus 스타일 조정
+.game-status-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 24px;
+
+  .section-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .divider {
+    height: 1px;
+    background: #eee;
+    margin: 20px 0;
+  }
+
+  .status-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .status-row {
+    display: flex;
+    gap: 16px;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
+  }
+
+  .status-item {
+    flex: 1;
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 6px;
+
+    .status-label {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.875rem;
+      color: #6c757d;
+      margin-bottom: 4px;
+    }
+
+    .status-value {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #212529;
+    }
+  }
+}
+
+.game-content .stock-game > div:first-child {
+  margin-bottom: 24px;
+}

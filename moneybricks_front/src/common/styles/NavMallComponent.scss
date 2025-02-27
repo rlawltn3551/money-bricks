@@ -1,0 +1,157 @@
+$primary-color: #0D548E;
+$secondary-color: #7FC2EF;
+$border-color: #ced4da;
+$color-one: #FF6B6B;
+$color-two: #FFA94D;
+$color-three: #6BCB77;
+
+.nav-mall-container {
+  width: 100%;
+
+  // 제목과 더보기 버튼을 포함하는 헤더 영역
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h2 {
+      font-size: 24px;
+      color: $primary-color;
+      font-weight: bold;
+      margin: 0;
+
+      @media (max-width: 768px) {
+        font-size: 20px;
+      }
+    }
+
+    .more-button {
+      padding: 8px 16px;
+      background-color: transparent;
+      color: $primary-color;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: lighten($primary-color, 20%);
+      }
+
+      @media (max-width: 768px) {
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.slick-slider {
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @media (max-width: 768px) {
+    padding: 0 10px;
+  }
+}
+
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  margin: 10px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .rank-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 20px;
+    z-index: 1;
+    transition: all 0.3s ease;
+
+    // 순위별 스타일
+    &.rank-1 {
+      background: $color-one;
+      font-size: 18px;
+    }
+
+    &.rank-2 {
+      background: $color-two;
+      font-size: 17px;
+    }
+
+    &.rank-3 {
+      background: $color-three;
+      font-size: 16px;
+    }
+
+    &.rank-other {
+      background: $secondary-color;
+      font-size: 15px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 14px;
+      padding: 4px 8px;
+
+      &.rank-1 { font-size: 16px; }
+      &.rank-2 { font-size: 15px; }
+      &.rank-3 { font-size: 14px; }
+      &.rank-other { font-size: 13px; }
+    }
+  }
+
+  img {
+    width: 100%;
+    max-height: 150px;
+    object-fit: contain;
+    cursor: pointer;
+    margin-bottom: 10px;
+
+    @media (max-width: 768px) {
+      max-height: 120px;
+    }
+  }
+
+  h3 {
+    font-size: 14px;
+    margin: 5px 0;
+    cursor: pointer;
+    color: $primary-color;
+
+    @media (max-width: 768px) {
+      font-size: 13px;
+    }
+  }
+
+  p {
+    font-size: 12px;
+    color: gray;
+    margin: 3px 0;
+
+    &:last-child {
+      color: $primary-color;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 11px;
+    }
+  }
+}

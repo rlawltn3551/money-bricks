@@ -1,4 +1,4 @@
-import {RouterProvider} from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 import root from "./common/router/root";
 
 function App() {

@@ -1,0 +1,308 @@
+// src/scss/QuizHistory.scss
+
+.quiz-history-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #f0f8ff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  // 이력 헤더
+  .history-header {
+    margin-bottom: 2rem;
+    text-align: center;
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: #6b7280;
+    }
+  }
+
+  // 로딩 상태
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 16rem;
+
+    .loading-text {
+      font-size: 1.25rem;
+      color: #4b5563;
+    }
+  }
+
+  // 에러 메시지
+  .error-container {
+    background-color: #fee2e2;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #b91c1c;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: #ef4444;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      background-color: #dc2626;
+      color: white;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: #b91c1c;
+      }
+    }
+  }
+
+  // 이력 없음
+  .empty-history {
+    background-color: white;
+    padding: 3rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: #6b7280;
+      margin-bottom: 1.5rem;
+    }
+
+    .primary-button {
+      padding: 0.75rem 1.5rem;
+      background-color: #0D548E;
+      color: white;
+      border: none;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: darken(#0D548E, 10%)
+      }
+    }
+  }
+
+  // 이력 목록
+  .history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+
+    .history-item {
+      background-color: white;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+      .history-item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:hover {
+          background-color: lighten(#f0f8ff, 1%);
+        }
+
+        .attempt-info {
+          h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+          }
+
+          .attempt-stats {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+
+            .category {
+              padding: 0.125rem 0.5rem;
+              background-color: #e5e7eb;
+              border-radius: 9999px;
+              color: #374151;
+            }
+
+            .points {
+              color: #059669;
+              font-weight: 500;
+            }
+          }
+        }
+
+        .toggle-icon {
+          color: #6b7280;
+          font-size: 0.875rem;
+        }
+      }
+
+      .attempt-details {
+        background-color: #f9fafb;
+        border-top: 1px solid #e5e7eb;
+        padding: 1rem 1.5rem;
+
+        .details-header {
+          margin-bottom: 1rem;
+
+          h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #374151;
+          }
+        }
+
+        .details-list {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+
+          .detail-item {
+            padding: 1rem;
+            border-radius: 0.375rem;
+
+            &.correct {
+              background-color: #ecfdf5;
+              border: 1px solid #d1fae5;
+            }
+
+            &.incorrect {
+              background-color: #fef2f2;
+              border: 1px solid #fee2e2;
+            }
+
+            .question {
+              font-weight: 500;
+              margin-bottom: 0.5rem;
+            }
+
+            .answer-info {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 0.5rem;
+
+              .answer-row {
+                font-size: 0.875rem;
+
+                .label {
+                  margin-right: 0.5rem;
+                  color: #6b7280;
+                }
+
+                .value {
+                  font-weight: 600;
+                }
+              }
+
+              .result {
+                font-weight: 600;
+
+                .correct & {
+                  color: #059669;
+                }
+
+                .incorrect & {
+                  color: #dc2626;
+                }
+              }
+            }
+
+            .explanation {
+              font-size: 0.875rem;
+              color: #6b7280;
+              padding-top: 0.5rem;
+              border-top: 1px solid rgba(0, 0, 0, 0.05);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 페이지네이션
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+
+    .page-button {
+      padding: 0.5rem 1rem;
+      background-color: white;
+      border: 1px solid #d1d5db;
+      border-radius: 0.25rem;
+      font-size: 0.875rem;
+      color: #374151;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      &:hover:not(:disabled) {
+        background-color: #f3f4f6;
+        border-color: #9ca3af;
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+
+    .page-info {
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+  }
+
+  // 액션 버튼
+  .action-buttons {
+    display: flex;
+    justify-content: center;
+
+    .primary-button {
+      padding: 0.75rem 1.5rem;
+      background-color: #0D548E;
+      color: white;
+      border: none;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: darken(#0D548E, 10%);
+      }
+    }
+  }
+}
