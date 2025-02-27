@@ -1,0 +1,163 @@
+$primary-color: #0D548E;
+$secondary-color: #7FC2EF;
+$text-color: #333;
+$secret-color: #d9534f; // 비밀글 (빨간색 계열)
+$waiting-color: #f0ad4e; // 답변 대기 중 (오렌지)
+$completed-color: #5cb85c; // 답변 완료 (초록색)
+
+// 전체 레이아웃
+.qna-community {
+	max-width: 900px;
+	margin: 20px auto;
+	padding: 10px 20px;
+	border-radius: 8px;
+}
+
+// 헤더 스타일
+.qna-header {
+	text-align: center;
+	margin-bottom: 20px;
+
+	h1 {
+		color: $primary-color;
+		font-size: 24px;
+		font-weight: bold;
+	}
+
+	p {
+		color: $text-color;
+		font-size: 16px;
+	}
+}
+
+// 문의하기 버튼
+.list-active {
+	display: block;
+	width: 150px;
+	margin: 10px auto 20px auto;
+	padding: 10px;
+	background: $primary-color;
+	color: white;
+	text-align: center;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background 0.3s;
+
+	&:hover {
+		background: darken($primary-color, 10%);
+	}
+}
+
+// QNA 리스트 스타일
+.qna-list {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+// 개별 QNA 항목 스타일
+.qna-item {
+	background: white;
+	padding: 15px;
+	border-radius: 8px;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	cursor: pointer;
+	transition: transform 0.3s ease;
+
+	&:hover {
+		background-color: lighten($primary-color, 65%);
+	}
+
+	&.secret {
+		border-left: 5px solid $secret-color; // 비밀글 표시
+	}
+}
+
+// 문의 정보 (제목, ID 등)
+.qna-info {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	.qna-id {
+		font-size: 14px;
+		font-weight: bold;
+		color: darken($text-color, 20%);
+	}
+
+	.qna-title {
+		font-size: 16px;
+		font-weight: bold;
+		flex: 1;
+		margin-left: 10px;
+		color: black;
+
+		// 비밀글 처리
+		.secret & {
+			color: $secret-color;
+		}
+
+	}
+	// 비밀글 태그 스타일
+	.qna-secret-tag {
+		background: $secret-color;
+		color: white;
+		padding: 5px 8px;
+		border-radius: 4px;
+		font-size: 12px;
+	}
+}
+
+// 추가 메타 정보 (작성일, 상태 등)
+.qna-meta {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 14px;
+	color: lighten($text-color, 20%);
+
+	.qna-date {
+		font-weight: bold;
+	}
+
+	// 답변 상태 스타일
+	.qna-reply-status {
+		font-size: 12px;
+		font-weight: bold;
+		padding: 5px 8px;
+		border-radius: 4px;
+		color: white;
+
+		&.completed {
+			background: $completed-color; // 답변 완료 (초록색)
+		}
+
+		&.waiting {
+			background: $waiting-color; // 답변 대기 (오렌지)
+		}
+	}
+}
+
+// 반응형 디자인 (모바일 최적화)
+@media (max-width: 600px) {
+	.qna-item {
+		padding: 10px;
+	}
+
+	.qna-info {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.qna-meta {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 5px;
+	}
+}

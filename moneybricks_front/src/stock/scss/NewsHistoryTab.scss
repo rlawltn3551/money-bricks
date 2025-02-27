@@ -1,0 +1,98 @@
+// NewsHistoryTab.scss
+.news-history-tab {
+  padding: 20px;
+
+  h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.5rem;
+  }
+
+  .news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-height: 400px; // 최대 높이 설정
+    overflow-y: auto; // 세로 스크롤 추가
+    padding-right: 10px; // 스크롤바 여백 추가
+
+    // 스크롤바 커스터마이징
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  }
+
+  // 나머지 기존 스타일은 그대로 유지
+  .news-item {
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .news-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+
+      .day {
+        font-weight: 600;
+        color: #666;
+      }
+
+      .impact {
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.9rem;
+
+        &.positive {
+          background: #dcfce7;
+          color: #166534;
+        }
+
+        &.negative {
+          background: #fee2e2;
+          color: #991b1b;
+        }
+      }
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #1f2937;
+    }
+
+    p {
+      color: #4b5563;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .news-footer {
+      display: flex;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: #6b7280;
+
+      .type {
+        padding: 2px 8px;
+        background: #f3f4f6;
+        border-radius: 4px;
+      }
+    }
+  }
+}

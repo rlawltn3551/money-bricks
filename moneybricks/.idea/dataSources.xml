@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="moneybricks@localhost" uuid="19611b3b-9fee-46ac-b526-ad837bd9a94a">
+    <data-source source="LOCAL" name="moneybricksdb@localhost" uuid="d2d5e93e-8666-4a54-98aa-69dec339a33a">
       <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mariadb://localhost:3306/moneybricks</jdbc-url>
+      <jdbc-url>jdbc:mariadb://localhost:3306/moneybricksdb</jdbc-url>
       <jdbc-additional-properties>
         <property name="com.intellij.clouds.kubernetes.db.host.port" />
         <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />

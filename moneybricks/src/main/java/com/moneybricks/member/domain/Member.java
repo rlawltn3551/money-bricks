@@ -49,11 +49,11 @@ public class Member extends BaseEntity {
 
     @Column(nullable = false)
     @Builder.Default
-    private boolean socialLinked  = false; // 소셜 계정과 연동 여부 (기본값 FALSE)
+    private boolean deleted = false; // 회원 탈퇴 여부 (기본값 FALSE)
 
     @Column(nullable = false)
     @Builder.Default
-    private boolean deleted = false; // 회원 탈퇴 여부 (기본값 FALSE)
+    private boolean firstLoginFlag = true; // 처음 로그인 여부 (기본값 true)
 
     @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "member_roles", joinColumns = @JoinColumn(name = "members_id"))
@@ -87,11 +87,9 @@ public class Member extends BaseEntity {
         this.emailAgreed = emailAgreed;
     }
 
-    public void changeSocialLinked(boolean socialLinked) {
-        this.socialLinked = socialLinked;
-    }
-
     public void changeDeleted(boolean deleted) {
         this.deleted = deleted;
     }
+
+    public void changeFirstLoginFlag(boolean firstLoginFlag) { this.firstLoginFlag = firstLoginFlag; }
 }

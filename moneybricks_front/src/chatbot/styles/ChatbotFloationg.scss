@@ -1,0 +1,35 @@
+$chatbot-width: 320px;
+
+.chatbot-wrapper {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: $chatbot-width;
+}
+
+/* 스크롤 시 챗봇 따라 움직이도록 설정 */
+.chatbot-floating {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: $chatbot-width;
+  transition: bottom 0.3s ease-in-out;
+}
+
+/* 스크롤 시 상단에 고정 */
+.chatbot-fixed {
+  position: fixed;
+  top: 80px; // 네비게이션 바 아래로
+  right: 20px;
+  width: $chatbot-width;
+  transition: top 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .chatbot-wrapper,
+  .chatbot-floating,
+  .chatbot-fixed {
+    width: 90%;
+    right: 10px;
+  }
+}

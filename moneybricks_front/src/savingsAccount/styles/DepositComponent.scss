@@ -1,0 +1,87 @@
+$primary-color: #0D548E;
+$error-color: #dc3545;
+$text-color: #333;
+$border-color: #ced4da;
+$white: #ffffff;
+$input-underline-color: #e5e7eb;
+
+.available-points {
+  font-size: 1.1rem;
+  color: $text-color;
+  margin: 1rem 0;
+}
+
+.deposit-input-container {
+  width: 100%;
+
+  .max-deposit-button-container {
+    display: flex;
+    justify-content: right;
+
+    .max-deposit-button {
+      background-color: $white;
+      color: $primary-color;
+      border: 1.5px solid $primary-color;
+      border-radius: 20px;
+      padding: 0.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: lighten($primary-color, 60%);
+      }
+    }
+
+  }
+
+
+  .deposit-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 2px solid $input-underline-color;
+    margin-bottom: 1rem;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      border-color: $primary-color;
+      outline: none;
+    }
+
+    &:invalid {
+      border-color: $error-color;
+    }
+  }
+
+}
+
+.deposit-info {
+  color: $text-color;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+
+  li {
+    display: flex;
+    margin-bottom: 1rem;
+  }
+}
+
+.deposit-button {
+  background-color: $primary-color;
+  color: $white;
+  border: none;
+  border-radius: 4px;
+  padding: 1rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}

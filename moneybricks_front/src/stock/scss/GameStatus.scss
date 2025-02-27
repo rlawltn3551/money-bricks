@@ -1,0 +1,157 @@
+.tooltip {
+  &-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+
+    &:hover {
+      .tooltip {
+        visibility: visible;
+        opacity: 1;
+        transform: translate(-50%, -100%) scale(1);
+      }
+    }
+  }
+
+  visibility: hidden;
+  position: absolute;
+  background-color: #333;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 250px; // 너비 약간 확장
+  top: -15px; // 위치 미세 조정
+  left: 50%;
+  transform: translate(-50%, -100%) scale(0.9); // 초기 스케일 효과 추가
+  margin-bottom: 10px;
+  opacity: 0;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1000;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+  }
+}
+
+.stats-grid {
+  display: grid; // flex에서 grid로 변경
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+
+    &__label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #666;
+      font-size: 0.875rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+
+      .help-icon,
+      .lucide {
+        width: 1rem;
+        height: 1rem;
+        cursor: help;
+        color: #888;
+        transition: all 0.2s ease;
+
+        &:hover {
+          color: #666;
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    &__value {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #212529;
+
+      &.text-red-500 {
+        color: #ef4444;
+      }
+
+      &.text-blue-500 {
+        color: #3b82f6;
+      }
+    }
+  }
+}
+
+.card {
+  background: white;
+  border-radius: 12px; // 살짝 더 둥글게
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.07), 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #333;
+
+      svg {
+        color: #666;
+        transition: color 0.2s ease;
+      }
+    }
+  }
+
+  &__content {
+    position: relative;
+  }
+
+  // 반응형 고려
+  @media (max-width: 768px) {
+    padding: 1rem;
+
+    &__header {
+      margin-bottom: 1rem;
+
+      h2 {
+        font-size: 1.1rem;
+      }
+    }
+  }
+  .game-method-step {
+    .game-method-step-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+
+      .step-icon {
+        display: flex;
+        align-items: center;
+        color: #666;
+      }
+    }
+  }
+}

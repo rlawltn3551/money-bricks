@@ -1,0 +1,81 @@
+.admin-charts-container {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+  .charts-summary {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    .total-members {
+      font-size: 1.2rem;
+      color: #555;
+
+      span {
+        font-weight: 600;
+        color: #0066cc;
+      }
+    }
+  }
+
+  .charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 20px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .chart-box {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    h4 {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      color: #444;
+      font-weight: 500;
+      text-align: center;
+    }
+  }
+
+  .empty-data-message {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-style: italic;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+  }
+
+  .custom-tooltip {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+
+    .label {
+      margin: 0;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .percent {
+      margin: 5px 0 0;
+      color: #666;
+    }
+  }
+}

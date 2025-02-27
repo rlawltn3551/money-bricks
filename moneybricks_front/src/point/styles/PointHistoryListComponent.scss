@@ -1,0 +1,127 @@
+$primary-color: #0D548E;
+$error-color: #dc3545;
+$text-color: #333;
+$border-color: #ced4da;
+$white: #ffffff;
+$disabled-color: lighten($primary-color, 20%);
+$input-underline-color: #e5e7eb;
+
+.points-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+
+  thead {
+    color: $primary-color;
+
+    th {
+      padding: 1rem;
+      text-align: center;
+      font-weight: bold;
+      border-bottom: 1px solid darken($primary-color, 10%);
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid $border-color;
+    }
+
+    td {
+      padding: 1rem;
+      color: $text-color;
+    }
+
+    .table-total-points-changed,
+    .table-available-points-changed {
+      font-weight: bold;
+    }
+
+    .positive-points {
+      color: #007bff; // 파란색 (양수)
+    }
+
+    .negative-points {
+      color: #dc3545; // 빨간색 (음수)
+    }
+  }
+
+  .btn-detail-cell {
+    text-align: center;
+
+    .btn-detail {
+      padding: 8px 16px;
+      font-size: 1rem;
+      background-color: $primary-color;
+      color: $white;
+      border: 1px solid $primary-color;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: darken($primary-color, 5%);
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+.no-history {
+  text-align: center;
+  font-size: 1rem;
+  color: $error-color;
+  margin-top: 1.5rem;
+}
+
+.point-explanation {
+  margin-top: 20px;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  color: $text-color;
+  font-size: 0.95rem;
+
+  p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+
+  strong {
+    color: $primary-color;
+  }
+}
+
+.modal-point-details-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+
+  th,
+  td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: $primary-color;
+    color: white;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  td {
+    color: $text-color;
+  }
+
+  .modal-final-total-points,
+  .modal-final-available-points {
+    color: $primary-color;
+    font-weight: bold;
+  }
+}
