@@ -13,10 +13,10 @@ import java.net.URL;
 
 @Component
 public class StockAPI {
-    private static final String API_KEY = "PSesBGBg3rb2qFonYfRD2EZ1oqSL9UaGl4MM";
-    private static final String API_SECRET = "DeYnaz7SHnNABwaKGJm48ocV0ob6QkXTxsF71Goi8jSBGcbh9E86iooC7jAW+r+Mer6/IPeujBjsJn088EPKaspQo67FqcAl+YDKBDutS7+D1FMh0qfRf5MyoUTz097H13XsKAnqdKb+rf6l5g7KqwZ6ExF+m8nvloyJdgoaJYeX6X5G2RU=";
+    private static final String API_KEY = "";
+    private static final String API_SECRET = "";
     private static final String BASE_URL = "https://openapivts.koreainvestment.com:29443";
-    private static final String BEARER_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6ImYwYzdiMTg4LWEyNWQtNDRhYy1hNjU3LTQ3ZGE5NjEyN2ViMCIsInByZHRfY2QiOiIiLCJpc3MiOiJ1bm9ndyIsImV4cCI6MTczOTQzNjk2MCwiaWF0IjoxNzM5MzUwNTYwLCJqdGkiOiJQU2VzQkdCZzNyYjJxRm9uWWZSRDJFWjFvcVNMOVVhR2w0TU0ifQ.2tqg0Jf2qbG3VWXlLHV3yyq2KEOhZFQEDP5BMWEpL9nE7mCa9l9c-4QidhwHhoqXx1pdt3ehRuCDhr0fRhtlKA";
+    private static final String BEARER_TOKEN = "";
 
     public BigDecimal getCurrentPrice(String stockCode) {
         try {
