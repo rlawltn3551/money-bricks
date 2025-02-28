@@ -30,8 +30,8 @@ public class JWTCheckFilter extends OncePerRequestFilter {
         // /api/auth/ 경로는 JWT 필터를 적용하지 않음
         return path.startsWith("/api/auth") ||
                 path.startsWith("/api/member/signup") ||
-                path.startsWith("/api/board/list") ||
-                (path.startsWith("/api/board/\\d+") && method.equals("GET")) ||
+                path.startsWith("/api/qna/list") ||
+                (path.startsWith("/api/qna/\\d+") && method.equals("GET")) ||
                 path.startsWith("/api/member/check-duplicate") ||
                 path.startsWith("/api/dictionary") ||
                 path.startsWith("/api/moneynews") ||
