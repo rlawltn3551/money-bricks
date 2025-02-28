@@ -3,7 +3,7 @@ SpringBoot, React, Python을 이용하고 AWS를 이용해 배포를 한 금융�
 
 
 ## 프로젝트 소개
-사회초년생을 위한 예/적금, 모의주식, 퀴즈를 통한 금융지식 습득을 위주로 포인트를 통한 성취를 습득 할 수 있는 사이트를 구현한 프로젝트입니다.
+사회초년생을 위한 예/적금, 모의주식, 퀴즈를 통한 금융지식 습득을 위주로 포인트를 통한 성취를 습득 할 수 있는 교육 사이트를 구현한 프로젝트입니다.
 
 
 ## 프로젝트 명 
@@ -74,12 +74,24 @@ SpringBoot, React, Python을 이용하고 AWS를 이용해 배포를 한 금융�
 - Sever : AWS
 - ----------------------------------------------------------------------------------------------------------
 ## ERD
-![image](https://github.com/user-attachments/assets/92f8894c-d50e-4d90-909e-4e3e157ad0ef)
+- 마이페이지
+![image](https://github.com/user-attachments/assets/a5c18b8a-e8ee-4179-a966-3fc76fa6c7c0)
+- 커뮤니티
+ ![image](https://github.com/user-attachments/assets/7033d568-779d-47e3-a0a5-19ccc0751675)
+- 모의주식
+![image](https://github.com/user-attachments/assets/d2b019ba-ade1-4f80-8964-70b263c7af45)
+
+
 
 
 ---
 ## 유스케이스다이어그램
+- 전체
 ![image](https://github.com/user-attachments/assets/6f139c1b-74e4-4484-8ed2-3228bf159743)
+
+- 모의주식
+- ![image](https://github.com/user-attachments/assets/1dd92041-180c-4343-8c41-51880ae53f88)
+
 
 ---
 
@@ -100,10 +112,14 @@ SpringBoot, React, Python을 이용하고 AWS를 이용해 배포를 한 금융�
 ### 마이페이지
 ![Animation1](https://github.com/user-attachments/assets/b6c6b7ee-305f-4481-9c40-b7f811de229e)
 
-#### action과 reducer 처리를 위한 slice 생성
+#### 필드 값이 유효성 검증을 위한 @Vaild 어노테이션 활용 , Principal을 통한 사용자 인증 및 정보 확인
+![image](https://github.com/user-attachments/assets/dc07f79f-08a5-41a6-a7ef-09700c0096a1)
+
+
+
 ![image](https://github.com/user-attachments/assets/fd97172b-766c-4dd3-abfe-30b6ac8c39ee)
 
-#### 쿠키를 통한 로그인 정보 로딩
+#### //쿠키를 통한 로그인 정보 로딩
 ![image](https://github.com/user-attachments/assets/d69525c7-c16e-4e83-b43b-41ddd8d06bdf)
 
 --------------------------------------------------------------------------------------
@@ -141,7 +157,7 @@ SpringBoot, React, Python을 이용하고 AWS를 이용해 배포를 한 금융�
 ![image](https://github.com/user-attachments/assets/f5ebef84-8f02-4058-be1d-0f82f927862d)
 
  -------------------------------------------------------------------------------------
-### 고객센터
+### //고객센터
 ![Animation4](https://github.com/user-attachments/assets/d9090d31-3c18-463a-b787-2ab2c8d6a12c)
 
 #### loginState 메서드를 사용하여 관리자(ROLE: ADMIN)만 확인 및 댓글 작성할 수 있도록 구성
