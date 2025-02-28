@@ -31,7 +31,6 @@ export const getReplyList = async (pageParam, qno) => {
 export const getOne = async (qno, pageParam) => {
 	const { page, size } = pageParam;
 
-	// http://localhost:8080/api/todo/20
 	const res = await jwtAxios.get(`${host}/${qno}`, {
 		params: { page: page, size: size },
 	});

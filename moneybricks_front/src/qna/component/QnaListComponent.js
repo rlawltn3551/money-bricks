@@ -70,7 +70,7 @@ const QnaListComponent = ({}) => {
 							if (
 								qna.secret &&
 								(!isLogin ||
-									(qna.writer !== loginState.id && !loginState.memberRoles.includes("ADMIN")))
+									(qna.writer !== loginState.username && !loginState.memberRoles.includes("ADMIN")))
 							) {
 								alert("비밀글은 작성자 또는 관리자만 확인할 수 있습니다.");
 								return;
@@ -82,7 +82,7 @@ const QnaListComponent = ({}) => {
 							<span className="qna-title">
 								{qna.secret &&
 								(!isLogin ||
-									(qna.writer !== loginState.id && !loginState.memberRoles.includes("ADMIN")))
+									(qna.writer !== loginState.username && !loginState.memberRoles.includes("ADMIN")))
 									? "비밀글입니다."
 									: qna.title}
 							</span>
